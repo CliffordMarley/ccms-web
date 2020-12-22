@@ -13,14 +13,35 @@ label,p,h1,h2,h3,h4,h5,h6,select,input{
     padding: 5em;
 }
 .nav-item.active{
-    background-color: black;
-    background: black;
+    background-color: rgb(211, 6, 6);
+    background: rgb(219, 3, 3);
     border-radius: 35px;
 }
 
 .nav-item.active .nav-link{
     color:white !important;
 }
+.nav-item .nav-link{
+    color:white !important;
+}
 .display-4{
     font-family: impact !important;
+    color:gray !important;
+}
+
+#display_name, #display_role{
+    color: white !important;
+}
+
+.danger{
+    background-color: gray !important;
+    color:white !important;
+}
+
+.navbar-brand{
+    color: gray !important;
+    font-family: orbitron;
+}
+.form-inline.my-2.my-lg-0 h3{
+    color: white !important;
 }

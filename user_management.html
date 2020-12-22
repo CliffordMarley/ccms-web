@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 pt-4">
-                <nav class="navbar navbar-expand-lg navbar-secondary bg-light">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -43,7 +43,7 @@
                           </li>
                       </ul>
                       <form class="form-inline my-2 my-lg-0">
-                        <h3 class="d-inline"> <i class="icon user"></i> <span id="display_name">N/A</span> (<span class="text-danger" id="display_role">N/A</span>)</h3>
+                        <h3 class="d-inline"> <i class="icon user"></i> <span id="display_name">N/A</span> (<span class="text-dark" id="display_role">N/A</span>)</h3>
                         
                       </form>
                     </div>
@@ -59,14 +59,14 @@
                 <h1 class="display-4" sty>USER MANAGEMENT <i class="icon user"></i></h1>
             </div>
             <div class="col-4">
-              <button data-backdrop="static" data-toggle="modal" data-target="#newUserModal" class="btn btn-lg btn-block btn-outline-secondary">Create New User <i class="icon plus circle"></i></button>
+              <button data-backdrop="static" data-toggle="modal" data-target="#newUserModal" class="btn btn-lg btn-block btn-outline-dark">Create New User <i class="icon plus circle"></i></button>
             </div>
             <div class="col-9 " >
               <hr>
                 <div class="row">
                   <div class="col-12 ui label" id="list_segment">
                     <table class="table table-hover table-sm table-bordered" id="users_table">
-                      <thead class="bg-secondary bg-dark">
+                      <thead class="bg-dark bg-dark">
                           <th>#</th>
                           <th>FIRSTNAME</th>
                           <th>LASTNAME</th>
@@ -92,11 +92,11 @@
             <div class="col-3" >
                <div class="row">
                  <div class="col-2"></div>
-                 <div class="col-10 px-1 border border-secondary-left" style="height: 60vh;">
-                  <h3 class="p-3 text-white bg-secondary">Controls</h3>
+                 <div class="col-10 px-1 border border-dark-left" style="height: 60vh;">
+                  <h3 class="p-3 text-white bg-dark">Controls</h3>
                   <hr>
-                  <button onclick="resetPassword()" class="btn btn-block btn-primary btn-lg">Reset Password</button>
-                  <button onclick="deleteUser()" class="btn btn-block btn-danger btn-lg">Delete User(s)</button>
+                  <button onclick="resetPassword()" class="btn btn-block btn-dark btn-lg">Reset Password</button>
+                  <button onclick="deleteUser()" class="btn btn-block btn-dark btn-lg">Delete User(s)</button>
                  </div>
                </div>
             </div>
@@ -107,7 +107,7 @@
     <div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <form class="modal-content segment ui" id="newUserForm">
-          <div class="modal-header bg-secondary">
+          <div class="modal-header bg-dark">
             <h5 class="modal-title text-white" id="newUserModalLabel">CREATE NEW SYSTEM USER</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -146,7 +146,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="reset" id="resetButton" class="btn btn-secondary btn-lg" data-dismiss="modal">Discard</button>
+            <button type="reset" id="resetButton" class="btn btn-dark btn-lg" data-dismiss="modal">Discard</button>
             <button type="submit" class="btn btn-success btn-lg">Submit Now <i class="icon check"></i></button>
           </div>
         </form>

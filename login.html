@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="./assets/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- LINK STYLESHEETS -->
+    <link rel="stylesheet" href="./lib/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-4.0.0.css">
+    <link rel="stylesheet" href="./lib/sweetalerts/sweetalert.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="row">
+            <div class="col-8 mx-auto text-center  p-5">
+               <h1 class="display-4">
+                <div class="ui image tiny ">
+                    <img src="./assets/icon.png" alt="">
+                </div>
+                Welcome To CCMS
+               </h1>
+                <hr>
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <div class="ui middle aligned center aligned grid">
+                            <div class="column">
+                                <h2 class="ui teal image header">
+                                    <img src="" class="image">
+                                    <div class="content">
+                                        Log-in to your account
+                                    </div>
+                                </h2>
+                                <form class="ui large form" id="login_form">
+                                    <div class="ui stacked segment">
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="user icon"></i>
+                                                <input type="text" name="email" placeholder="E-mail address" required>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="lock icon"></i>
+                                                <input type="password" name="password" placeholder="Password" required>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="ui fluid large teal submit button">Login</button>
+                                    </div>
+
+                                    <div class="ui error message"></div>
+
+                                </form>
+
+                                <div class="ui message">
+                                    Forgot Password? <a href="mailto:cliffmwale97@gmail.com">Contact Admin</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LINK JAVASCRIPTS -->
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-4.0.0.js"></script>
+    <script src="./js/jquery.table2excel.js"></script>
+    <script src="./lib/semantic/dist/semantic.min.js"></script>
+    <script src="./lib/sweetalerts/sweetalert.min.js"></script>
+    <script src="./js/app.jsx"></script>
+
+    <script>
+        $(document).ready(() => {
+            $("#login_form").submit(e => {
+                e.preventDefault()
+                const credentials = getFormData('login_form')
+                console.log(credentials)
+
+                const options = {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `email=${credentials.email}&password=${credentials.password}`
+                }
+
+                $("#login_form").addClass('loading')
+                fetch(`${baseURL}/login`, options)
+                    .then(res => res.json())
+                    .then(res => {
+                        swal('', res.message, res.status)
+                        if (res.status == 'success') {
+                            localStorage.setItem('userdata', JSON.stringify(res.data))
+                            setTimeout(() => { location.href = "index.html" }, 2000)
+                        } else {
+                            $("#login_form").removeClass('loading')
+                        }
+                    })
+                    .catch(err => {
+                        $("#login_form").removeClass('loading')
+                        swal('Ooops!', 'Somthng went wrong with this request!', 'error')
+                    })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

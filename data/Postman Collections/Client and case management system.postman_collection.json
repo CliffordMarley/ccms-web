@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "24823b10-5610-4200-8a7f-23ceb107686a",
+		"name": "Client and case management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://case.malawimorning.com/register_user",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"register_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin@2020",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://case.malawimorning.com/login",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "This is user login "
+			},
+			"response": []
+		},
+		{
+			"name": "get single user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://case.malawimorning.com/get_user",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"get_user"
+					]
+				},
+				"description": "This end point will recieve user id and check if he exist or not then will give back user info if exist"
+			},
+			"response": []
+		},
+		{
+			"name": " user status change",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://case.malawimorning.com/update_user",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"update_user"
+					]
+				},
+				"description": "this will dele"
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://case.malawimorning.com/get_all_users",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"get_all_users"
+					]
+				},
+				"description": "This request will pull all users in database"
+			},
+			"response": []
+		},
+		{
+			"name": "http://case.malawimorning.com/register_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://case.malawimorning.com/register_user",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"register_user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "Admin@2020",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user change password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "this request is used by a user who has logged in and wants to change password"
+			},
+			"response": []
+		}
+	]
+}

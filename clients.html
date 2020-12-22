@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="./assets/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients Management</title>
+
+    <!-- LINK STYLESHEETS -->
+    <link rel="stylesheet" href="./css/bootstrap-4.0.0.css">
+    <link rel="stylesheet" href="./lib/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="./lib/sweetalerts/sweetalert.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pt-4">
+                <nav class="navbar navbar-expand-lg navbar-secondary bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <a class="navbar-brand" href="#">CCMS</a>
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cases.html">Cases <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="clients.html">Clients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="document.html">Documents</a>
+                            </li>
+                            <li class="nav-item admin_setting">
+                                <a class="nav-link " href="user_management.html">User Management</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <h3> <i class="icon user"></i> <span id="display_name">N/A</span> (<span class="text-danger"
+                                    id="display_role">N/A</span>)</h3>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12">
+                <h3 class="display-4">CLIENTS MANAGEMENT <i class="icon users"></i></h3>
+            </div>
+            <div class="col-12" id="client_view_1">
+                <div class="row">
+                    <div class="col-6">
+                        <hr>
+                        <form action="#" class="ui" id="newClientForm">
+                            <div class="form-row">
+                                <div class="col-3 form-group">
+                                    <label for="">Title</label>
+                                    <select name="Title" class="form-control form-control-lg">
+                                        <option value="">Select</option>
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Ms.">Ms.</option>
+                                        <option value="Mrs.">Mrs.</option>
+                                        <option value="Dr.">Dr.</option>
+                                        <option value="Prof.">Prof.</option>
+                                        <option value="Hon.">Hon.</option>
+                                        <option value="H.E.">H.E.</option>
+                                        <option value="Reverend">Reverend</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-4">
+                                    <label for="">Firstname</label>
+                                    <input type="text" placeholder="Required" name="Firstname" class="form-control form-control-lg" required/>
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Lastname</label>
+                                    <input type="text" name="Lastname" placeholder="Required" class="form-control form-control-lg" required/>
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Other Name(s)</label>
+                                    <input type="text" name="Middlename" placeholder="Optional" class="form-control form-control-lg" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-4 form-group">
+                                    <label for="">Gender</label>
+                                    <select name="Gender" id="" class="form-control form-control-lg" required>
+                                        <option value="" selected>Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="col-8 form-group">
+                                    <label for="">Date Of Birth</label>
+                                    <input type="date" name="DOB" placeholder="Optional" class="form-control form-control-lg">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-6 form-group">
+                                    <label for="">Nationality</label>
+                                    <input type="text" placeholder="Optional" name="Nationality" class="form-control form-control-lg">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="">District</label>
+                                    <select name="District" class="form-control form-control-lg" id="district">
+                                        <option value="">Select</option>
+        
+                                    </select>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="">Village/Town</label>
+                                    <input type="text" name="Village" class="form-control form-control-lg" placeholder="Optional">
+                                </div>
+                                <div class="col-12">
+                                    <hr>
+                                    <button id="submitBtn" class="ui button icon medium positive fluid">
+                                        SUBMIT REGISTRATION <i class="icon user"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-1">
+                        <div class="ui vertical divider">
+                            <i class="icon arrow right"></i><br>
+                            <i class="icon arrow left"></i>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <table class="table table-sm table-hover table-bordered" id="clients_table">
+                            <thead class="bg-secondary bg-dark">
+                                <th>CID#</th>
+                                <th>Client FullName</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+        
+                            </tbody>
+                        </table>
+        
+                        <style>
+                            #clients_table thead th{
+                              color: white;
+                              font-family: 'YU Gothic UI' !important;
+                            }
+        
+                            #clients_table tbody tr, #clients_table tbody tr td{
+                                font-size: 10px !important;
+                                font-weight: bold !important;
+                            }
+                          </style>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-none" id="client_view_2">
+                <hr>
+                <h2><a class="ui button circular primary" onclick="backToList()" href="#back"><i class="icon arrow left"></i> Back</a></h2>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="ui image ">
+                            <img src="" id="client_image_preview" style="width:300px;height:30vh;" class="img img-thumbnail" alt="Display Image">
+                         </div>
+                        <div class="mt-3">
+                            <hr>
+                            <input type="file" name="file" hidden id="client_image_upload" accept="image/*">
+                            <button onclick="launchImageSelect()" class="btn btn-outline-secondary btn-block btn-lg">Pick Client Image <i class="icon user"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                       <div class="row">
+                           <div class="col-6">
+                            <h3 class="p-2 bg-secondary text-white">Background Details</h3>
+                            <table class="table table-sm" id="client_info_display">
+                            </table>
+                           </div>
+                           <div class="col-6">
+
+                           </div>
+                           <div class="col-12">
+                            <h3 class="p-2 bg-secondary text-white">Contacts & Addresses</h3>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button data-toggle="modal" data-target="#addContactModal" class="ui button basic circular positive icon tiny">Add Contact <i class="icon user"></i></button>
+                                </div>
+                                <div class="col-9">
+                                    <table class="table table-striped table-sm table-hover" id="client_contacts_table">
+                                        <thead class="bg-dark">
+                                            <th>#</th>
+                                            <th>Contact Type</th>
+                                            <th>Contact Value</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                    <style>
+                                        #client_contacts_table thead th{
+                                            color:white !important;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="addContactModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <form class="modal-content ui segment" action="#" id="contact_form">
+            <div class="modal-header bg-secondary">
+              <h5 class="modal-title text-white" id="addContactModalLabel">Add Client Contact</h5>
+              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div >
+                  <div class="form-row">
+                      <div class="form-group col-3">
+                          <label for="">Contact Type :</label>
+                          <select name="contact_type" class="form-control form-control-lg" required>
+                              <option value="">Select</option>
+                              <option value="PHONE_NUMBER">Phone Number</option>
+                              <option value="EMAIL_ADDRESS">Email Address</option>
+                              <option value="PHYSICAL_ADDRESS">Physical Address</option>
+                          </select>
+                      </div>
+                      <div class="col-9 form-group">
+                          <label for="">Contact Value :</label>
+                          <input type="text" name="contact" placeholder="Type Contact Here..." class="form-control form-control-lg" required>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="reset" id="resetButton" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+              <button type="submit" class="btn btn-primary">Submit <i class="icon check circle"></i></button>
+            </div>
+        </form>
+        </div>
+      </div>
+
+    <style>
+        #client_image{
+            width:100%;
+            height: 35vh;
+            background: whitesmoke;
+        }
+    </style>
+
+    <!-- LINK JAVASCRIPTS -->
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-4.0.0.js"></script>
+    <script src="./js/jquery.table2excel.js"></script>
+    <script src="./lib/semantic/dist/semantic.min.js"></script>
+    <script src="./lib/sweetalerts/sweetalert.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="./js/app.jsx"></script>
+    <script>
+        let clients_table = $('#clients_table').DataTable()
+        let CLIENTS
+        $(document).ready(e => {
+            resolveUserData()
+            getDistricts()
+            fetchClients()
+
+            $("#newClientForm").submit(e=>{
+                e.preventDefault()
+                registerNewClient()
+            })
+
+            $("#client_image_upload").change(function(e){
+                readURL(this, 'client_image_preview')
+            })
+
+            $("#contact_form").submit(e=>{
+                e.preventDefault()
+                addClientContact()
+            })
+        })
+    </script>
+
+<script>
+    function registerNewClient(){
+      const client_data = getFormData("newClientForm")
+      const URLParams = Object.keys(client_data).filter(k => client_data.hasOwnProperty(k)).map(
+      k => encodeURIComponent(k) + '=' + encodeURIComponent(client_data[k])).join('&')
+
+      console.log(URLParams)
+
+      const options = {
+        method:"POST",
+        headers:{
+          'Content-Type':'application/x-www-form-urlencoded'
+        },
+        body:URLParams
+      }
+
+      $('#submitBtn').addClass('loading disabled').removeClass('positive')
+      fetch(`${baseURL}/create_client`, options)
+      .then(res=>res.json())
+      .then(res=>{
+        $('#submitBtn').removeClass('loading disabled').addClass('positive')
+        toast(res.message, res.status)
+        if(res.status == 'success'){
+          fetchClients()
+        }
+      })
+      .catch(err=>{
+        $('#submitBtn').removeClass('loading disabled').addClass('positive')
+        swal('Oops!', "Something went wrong with this request!", 'error')
+      })
+    }
+  </script>
+
+  <script>
+      async function fetchClients(){
+          console.log('Fetching clients...')
+           
+        fetch(`${baseURL}/clients`)
+        .then(res=>res.json())
+        .then(res=>{
+          CLIENTS = res.data
+          if(res.status == 'success'){
+            if(res.status == 'success'){
+              toast('Clients list updated!', 'default')
+              renderClientsTable()
+            }else{
+              toast(res.message, res.status)
+            }
+           
+          }else{
+            toast('Failed to update clients list!', res.status)
+          }
+        })
+        .catch(err=>{
+          toast("Connection Error: Failed to fetch clients!", 'error')
+        })
+      }
+
+      function renderClientsTable(){
+        try{clients_table.destroy()}catch(e){console.error('Failed to destroy DataTable!')}
+        let TableRows = CLIENTS.map(row=>{
+          return `<tr>
+                        <td>${row.id}</td>
+                        <td>${row.Title} ${row.Firstname.toUpperCase()} ${row.Lastname.toUpperCase()} ${row.Middlename.toUpperCase()}</td>
+                        <td>${row.Gender}</td>
+                        <td class="${(row.status == 'Returned' ? 'text-success': `${(row.status == 'Cancelled' ? 'text-danger' : '')}`)}">${row.Status}</td>
+                        <td>
+                            <a href="#viewClient/#{${row.id}}" onclick="viewClientDetails(${row.id})" class="ui button icon mini primary circular">View</a>
+                        </td>
+                      </tr>`
+        })
+        TableRows = TableRows.join('')
+        $("#clients_table tbody").html(TableRows)
+        clients_table = $("#clients_table").DataTable({
+                    searching:true,
+                    pageLimit:10,
+                    buttons: [
+                        'copy', 'excel', 'pdf'
+                    ]
+                });
+      }
+  </script>
+
+
+    <script>
+        async function getDistricts(){
+            fetch(`${baseURL}/get_districts`)
+            .then(res=>res.json())
+            .then(res=>{
+                if(res.status == 'success'){
+                    let list = res.data.map(district=>{
+                        return `<option value="${district.district_id}">${district.district_name}</option>`
+                    })
+                    list = list.join('')
+                    $("#district").html(`<option value="">Select</option>${list}`)
+                }
+            })
+            .catch(err=>{
+                console.log('Failed to fetch districts.\nRetrying in 5 seconds...')
+                setTimeout(()=>{getDistricts()},5000)
+            })
+        }
+    </script>
+
+    <script>
+        let client_in_focus;
+
+        function backToList(){
+            $("#client_view_1").removeClass('d-none')
+            $("#client_view_2").addClass('d-none')
+        }
+
+        function viewClientDetails(client_id){
+            $("#client_view_1").addClass('d-none')
+            $("#client_view_2").removeClass('d-none')
+            client_in_focus = client_id
+            getClientContacts()
+
+            let open_file
+            for (let i = 0; i < CLIENTS.length; i++) {
+                if(CLIENTS[i].id == client_id){
+                    open_file = CLIENTS[i]
+                    break
+                }
+            }
+            let DOM = `  <tr>
+                                <td class="key">Client FullName :</td>
+                                    <td class="value">${open_file.Title} ${open_file.Firstname} ${open_file.Middlename} ${open_file.Lastname}</td>
+                                </tr>
+                                <tr>
+                                    <td class="key">Gender :</td>
+                                    <td class="value">${open_file.Gender.toUpperCase()}</td>
+                                </tr>
+                                <tr>
+                                    <td class="key">Date Of Birth :</td>
+                                    <td class="value">${open_file.DOB}</td>
+                                </tr>
+                                <tr>
+                                    <td class="key">Nationality :</td>
+                                    <td class="value">${open_file.Nationality}</td>
+                                </tr>
+                                <tr>
+                                    <td class="key">Home District</td>
+                                    <td class="value">${open_file.District}</td>
+                                </tr>
+                                <tr>
+                                    <td class="key">Home Village/Town :</td>
+                                    <td class="value">${open_file.Village}</td>
+                                </tr>
+                                `
+                                $("#client_info_display").html(DOM)
+        }
+
+        function launchImageSelect(){
+            $("#client_image_upload").click()
+        }
+
+        function addClientContact(){
+            const data = getFormData('contact_form')
+            data.client_id = client_in_focus
+            console.log(data)
+            $("#contact_form").addClass('loading')
+            fetch(`${baseURL}/create_client_contact`, {
+                method:"POST",
+                headers:{
+                    'Content-Type':'application/x-www-form-urlencoded'
+                },
+                body: `contact_type=${data.contact_type}&contact=${data.contact}&client=${client_in_focus}`
+            }).then(re=>res.json())
+            .then(res=>{
+                $("#contact_form").removeClass('loading')
+                toast(res.message, res.status)
+                if(res.status == 'success'){
+                    $("#resetButton").click()
+                    getClientContacts()
+                }
+            })
+            .catch(err=>{
+                $("#contact_form").removeClass('loading')
+                swal('Connection Error!','Failed to add Client Contact', 'error')
+            })
+        }
+
+        function getClientContacts(){
+            fetch(`${baseURL}/get_client_contacts?client=${client_in_focus}`)
+            .then(res=>res.json())
+            .then(res=>{
+                toast(res.message, res.status)
+                if(res.status == 'success'){
+                    let rows = res.data.map((index, contact)=>{
+                        return `
+                                <tr>
+                                    <td>${(index+1)}</td>
+                                    <td>${payload.contact_type}</td>
+                                    <td>${payload.contact}</td>    
+                                    <td>
+                                        <a class="text-danger" onclick="deleteContact(${payload.id})">x</a>
+                                    </td>
+                                </tr>
+                                `
+                    })
+                    rows = rows.join()
+                    $("#client_contacts_table tbody").html(rows)
+                }
+            })
+            .catch(err=>{
+                toast('Failed to fetch Client contacts!', 'error')
+            })
+        }
+    </script>
+    
+</body>
+
+</html>

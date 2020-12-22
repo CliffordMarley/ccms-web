@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "24823b10-5610-4200-8a7f-23ceb107686a",
+		"name": "Client and case management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Firstname",
+							"value": "Soldir",
+							"type": "text"
+						},
+						{
+							"key": "Lastname",
+							"value": "Banda",
+							"type": "text"
+						},
+						{
+							"key": "Middlename",
+							"value": "jads",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "CLERK",
+							"type": "text"
+						},
+						{
+							"key": "EmailAddress",
+							"value": "kamulonim@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "Gender",
+							"value": "MALE",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/register_user"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin@2020",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://case.malawimorning.com/login",
+					"protocol": "http",
+					"host": [
+						"case",
+						"malawimorning",
+						"com"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "This is user login "
+			},
+			"response": []
+		},
+		{
+			"name": "get single user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/get_user",
+				"description": "This end point will recieve user id and check if he exist or not then will give back user info if exist"
+			},
+			"response": []
+		},
+		{
+			"name": " user status change",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "Firstname",
+							"value": "ROsaria",
+							"type": "text"
+						},
+						{
+							"key": "Middlename",
+							"value": "M",
+							"type": "text"
+						},
+						{
+							"key": "Lastname",
+							"value": "Nkhoma",
+							"type": "text"
+						},
+						{
+							"key": "EmailAddress",
+							"value": "kamulonim@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "Role",
+							"value": "ADMINISTRATOR",
+							"type": "text"
+						},
+						{
+							"key": "Status",
+							"value": "Active",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "a90fede275cd703e423d5768670efd8866a45303",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/update_user",
+				"description": "this will dele"
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "http://case.malawimorning.com/get_all_users",
+				"description": "This request will pull all users in database"
+			},
+			"response": []
+		},
+		{
+			"name": "http://case.malawimorning.com/register_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "http://case.malawimorning.com/register_user"
+			},
+			"response": []
+		},
+		{
+			"name": "user change password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "OldPassword",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/change_password",
+				"description": "this request is used by a user who has logged in and wants to change password"
+			},
+			"response": []
+		},
+		{
+			"name": "Reset user password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/reset_password",
+				"description": "This can reset user password"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "Firstname",
+							"value": "odukwa",
+							"type": "text"
+						},
+						{
+							"key": "Middlename",
+							"value": "Obu",
+							"type": "text"
+						},
+						{
+							"key": "Lastname",
+							"value": "ochukwu",
+							"type": "text"
+						},
+						{
+							"key": "Gender",
+							"value": "MALE",
+							"type": "text"
+						},
+						{
+							"key": "DOB",
+							"value": "12-21-2020",
+							"type": "text"
+						},
+						{
+							"key": "Nationality",
+							"value": "Malawian",
+							"type": "text"
+						},
+						{
+							"key": "District",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "Village",
+							"value": "Bala",
+							"type": "text"
+						},
+						{
+							"key": "ClientImage",
+							"value": "avatar.png",
+							"type": "text"
+						},
+						{
+							"key": "IDType",
+							"value": "PASSPORT",
+							"type": "text"
+						},
+						{
+							"key": "IDImage",
+							"value": "hsHDA.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/create_client",
+				"description": "This end point will allow user to create client"
+			},
+			"response": []
+		},
+		{
+			"name": "Get districts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://case.malawimorning.com/get_districts",
+				"description": "This end point will get all districts"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all clients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://case.malawimorning.com/clients",
+				"description": "This will get all clients in database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get single client details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/single_client",
+				"description": "This will get a client by identity"
+			},
+			"response": []
+		},
+		{
+			"name": "upload image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://case.malawimorning.com/upload_file",
+				"description": "This link will help u upload file"
+			},
+			"response": []
+		}
+	]
+}
